@@ -147,17 +147,17 @@ open class $ {
     ///
     /// - parameter functions: - list of functions
     /// - returns: A function that can be called with variadic parameters of values
-    open class func compose<T>(_ functions: ((T...) -> [T])...) -> ((T...) -> [T]) {
-        typealias Function = ([T]) -> [T]
-        return {
-            var result = $0
-            for fun in functions {
-                let f = unsafeBitCast(fun, to: Function.self)
-                result = f(result)
-            }
-            return result
-        }
-    }
+    // open class func compose<T>(_ functions: ((T...) -> [T])...) -> ((T...) -> [T]) {
+    //     typealias Function = ([T]) -> [T]
+    //     return {
+    //         var result = $0
+    //         for fun in functions {
+    //             let f = unsafeBitCast(fun, to: Function.self)
+    //             result = f(result)
+    //         }
+    //         return result
+    //     }
+    // }
 
     /// Compose two or more functions passing result of the first function
     /// into the next function until all the functions have been evaluated
